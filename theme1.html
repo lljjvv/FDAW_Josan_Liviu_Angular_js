@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+
+    <div ng-app="" ng-init="number=''">
+        <p>Enter number:</p>
+        <p>Name: <input type="text" ng-model="number"></p>
+        <p>You wrote: {{ number }}</p>
+        <p>With ng-repeat
+        <p>
+        <ul>
+            <li ng-repeat="x in [0,1,2,3,4,5,6,7,8,9]">
+                {{ x + ' * ' + number + ' = ' + x * number}}
+            </li>
+        </ul>
+
+        <p>Without ng-repeat<p>
+        <p> {{ 0 + ' * ' + 0 + ' = ' + 0 * number}} </p>
+        <p> {{ 1 + ' * ' + 0 + ' = ' + 1 * number}} </p>
+        <p> {{ 2 + ' * ' + 0 + ' = ' + 2 * number}} </p>
+        <p> {{ 3 + ' * ' + 0 + ' = ' + 3 * number}} </p>
+        <p> {{ 4 + ' * ' + 0 + ' = ' + 4 * number}} </p>
+        <p> {{ 5 + ' * ' + 0 + ' = ' + 5 * number}} </p>
+        <p> {{ 6 + ' * ' + 0 + ' = ' + 6 * number}} </p>
+        <p> {{ 7 + ' * ' + 0 + ' = ' + 7 * number}} </p>
+        <p> {{ 8 + ' * ' + 0 + ' = ' + 8 * number}} </p>
+        <p> {{ 9 + ' * ' + 0 + ' = ' + 9 * number}} </p>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</body>
+
+</html>
