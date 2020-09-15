@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+
+    <div ng-app="myApp" ng-controller="numberCtrl">
+
+        First Number: <input type="text" ng-model="firstNum"><br>
+        Second Number: <input type="text" ng-model="secondNum"><br>
+        <br>
+        Result of divizion: {{result()}}
+
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('numberCtrl', function ($scope) {
+            $scope.firstNum = 0;
+            $scope.secondNum = 0;
+
+            $scope.result = () => $scope.secondNum === 0 ? "Divizion by zero" : $scope.firstNum / $scope.secondNum;
+
+        });
+    </script>
+
+</body>
+
+</html>

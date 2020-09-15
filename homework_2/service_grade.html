@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+
+        <p>Result is:</p>
+
+        <h1>{{exp}}</h1>
+
+    </div>
+    <p>A custom service.</p>
+
+    <script>
+        var app = angular.module('myApp', []);
+
+        app.service('expo', function () {
+            this.exponentiation = function (x, y) {
+                return x ** y;
+            }
+        });
+        app.controller('myCtrl', function ($scope, expo) {
+
+            let arr = [3, 2];
+            $scope.exp = expo.exponentiation(...arr);
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
 <body>
 
-<div ng-app="myApp" ng-controller="arrController">
+    <div ng-app="myApp" ng-controller="arrController">
 
-<ul>
+        <ul>
+            <li ng-repeat="x in students | filter : {'born' : 1999}">{{x.student + ", " + x.note + ", " + x.born}}</li>
+        </ul>
 
-<li ng-repeat="x in products | filter : {'quantity' : 0}">{{x.product + ", " + x.price + ", " + x.quantity}}</li>
-</ul>
+    </div>
 
-</div>
-
-<script>
-var app = angular.module('myApp', []);
-app.controller('arrController', function($scope) {
-    $scope.products = [
-        {"product" : "Table", "price" : "931", "quantity" : 210},
-        {"product" : "Book", "price" : "84", "quantity" : 0},
-        {"product" : "Pencil", "price" : "7", "quantity" : 40},
-        {"product" : "Water", "price" : "10", "quantity" : 30},
-        {"product" : "Juice", "price" : "6", "quantity" : 2}
-    ];
-});
-</script>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('arrController', function ($scope) {
+            $scope.students = [
+                { "student": "Victor", "note": "10", "born": 2000 },
+                { "student": "Mihail", "note": "9", "born": 2000 },
+                { "student": "Liviu", "note": "10", "born": 1999 },
+                { "student": "Andrei", "note": "7", "born": 2001 },
+                { "student": "Oleg", "note": "6", "born": 2001 }
+            ];
+        });
+    </script>
 
 </body>
+
 </html>
