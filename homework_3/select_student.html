@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+    <!-- 3.	select student
+de afisat alegerea utilizatorului -->
+
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+
+        <select ng-model="selectedName" ng-options="x for x in names">
+        </select>
+
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope) {
+            $scope.names = ["Liviu", "Vasile", "Ion"];
+        });
+    </script>
+
+</body>
+
+</html>

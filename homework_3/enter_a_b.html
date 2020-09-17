@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+
+    <!-- 1.	введите а и б
+после щелчк выдайте произведение а и б -->
+
+
+    <div ng-app="myApp" ng-controller="myCtrl">
+
+        First Number: <input type="text" ng-model="firstNum"><br>
+        Second Number: <input type="text" ng-model="secondNum"><br>
+
+        <h1 ng-click="result = firstNum * secondNum">Click!</h1>
+
+        <h2>{{ result }}</h2>
+
+    </div>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope) {
+
+            $scope.result = 0;
+            $scope.firstNum = 0;
+            $scope.secondNum = 0;
+        });
+    </script>
+
+</body>
+
+</html>

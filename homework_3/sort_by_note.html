@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+<body>
+    
+    <!-- 4.	отсортировать список студентов по убыванию оценки -->
+
+    <div ng-app="myApp" ng-controller="arrController">
+
+        <ul>
+            <li ng-repeat="x in students | orderBy:'note':true">{{x.student + ", " + x.note + ", " + x.group}}</li>
+        </ul>
+
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('arrController', function ($scope) {
+            $scope.students = [
+                { "student": "Victor", "note": 9, "group": "IA1802" },
+                { "student": "Mihail", "note": 9, "group": "IA1802" },
+                { "student": "Liviu", "note": 10, "group": "IA1802" },
+                { "student": "Andrei", "note": 7, "group": "IA102" },
+                { "student": "Oleg", "note": 6, "group": "IA1802" }
+            ];
+        });
+    </script>
+
+</body>
+
+</html>
