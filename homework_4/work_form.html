@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+
+<body>
+
+    <div ng-app="myApp" ng-controller="resultForm">
+        <div>
+            <h3>Формуляр устройства на работу</h3> </br>
+            <form name="work_form">
+                <label for="lastName">Фамиллия:</label></br>
+                <input type="text" id="lastName" name="lastName" ng-model="lastName" ng-click="isSubmitetd=false"
+                    required>
+                <span ng-show="work_form.lastName.$touched && work_form.lastName.$invalid">Поле обязательно к
+                    заполнению.</span>
+                </br></br>
+
+                <label for="firstName">Имя: </label></br>
+                <input type="text" id="firstName" name="firstName" ng-model="firstName" ng-click="isSubmitetd=false"
+                    required>
+                <span ng-show="work_form.firstName.$touched && work_form.firstName.$invalid">Поле обязательно к
+                    заполнению.</span>
+                </br></br>
+
+                <label for="born">Дата рождения: </label></br>
+                <input type="date" id="born" name="born" ng-model="born">
+                <span ng-show="work_form.born.$touched && work_form.born.$invalid">Поле обязательно к заполнению.</span>
+                </br></br>
+
+                <label>Факультет:</label></br>
+                <p>
+                    <input value="Химия" type="radio" id="chemistry" name="faculty" ng-model="faculty">
+                    <label for="chemistry">Химия</label>
+                </p>
+                <p>
+                    <input value="Информатика " type="radio" id="informatics" name="faculty" ng-model="faculty">
+                    <label for="informatics">Информатика</label>
+                </p>
+                <p>
+                    <input value="Математика" type="radio" id="mathematics" name="faculty" ng-model="faculty">
+                    <label for="mathematics">Математика</label>
+                </p>
+                <p>
+                    <input value="Биология" type="radio" id="biology" name="faculty" ng-model="faculty">
+                    <label for="biology">Биология</label>
+                </p>
+
+                <label for="lessonSelect">Предмет:</label></br></br>
+                <select id="lessonSelect" name="lessonSelect" ng-model="subject">
+                    <option value="Органическая химия">Органическая химия</option>
+                    <option value="Экономика">Экономика</option>
+                    <option value="Математика">Математика</option>
+                    <option value="Информатика">Информатика</option>
+                    <option value="Биология">Биология</option>
+                </select>
+                <span ng-show="work_form.lessonSelect.$touched && work_form.lessonSelect.$invalid">Поле обязательно к
+                    заполнению.</span>
+
+                </br></br>
+
+                <label for="salary">Ожидаемая зарплата:</label></br></br>
+                <input type="number" id="salary" name="salary" ng-model="salary">
+                <span ng-show="work_form.salary.$touched && work_form.salary.$invalid">Поле обязательно к
+                    заполнению.</span> </br>
+
+                <div ng-if="salary <= 3000">
+                    <span>Вы себя недооцениваете</span> </br>
+                </div>
+                <div ng-if="salary >= 10000">
+                    <span>Преувиличиваете</span> </br>
+                </div>
+
+                </br>
+                <button ng-init="showSummury=false;" ng-click="showSummury=true" on-click="{{result()}};"
+                    ng-disabled="salary >= 10000">Согласен</button>
+                <button>Отказ</button>
+            </form>
+
+
+            <div ng-if="showSummury && show">
+                <h4><b>Введённая информация</b></h4>
+                <p>Фамиллия: {{lastName}}</p>
+                <p>Имя: {{firstName}}</p>
+                <p>Дата рождения: {{born}}</p>
+                <p>Факультет: {{faculty}}</p>
+                <p>Предмет: {{subject}}</p>
+                <p>Ожидаемая зарплата: {{salary}}</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('resultForm', function ($scope) {
+            $scope.result = () => {
+                $scope.show = $scope.work_form.lastName.$valid && $scope.work_form.firstName.$valid && $scope.work_form.born.$valid;
+            };
+        });
+    </script>
+</body>
+
+</html>
